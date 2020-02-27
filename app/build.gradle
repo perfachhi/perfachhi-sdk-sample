@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
-//apply plugin: 'com.appachhi.plugin'
 
 ext.app = [
         'version'            : '2.2.0',
@@ -139,10 +138,8 @@ dependencies {
 
     //Appachhi SDK
     implementation "com.github.appachhi.android-sdk:appachhisdk:0.4.7-beta"
-
     implementation files('/build/libs/appachhiplugin.jar')
 
-    //implementation project(':appachhisdk')
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -16,7 +16,7 @@ buildscript {
         classpath "com.google.gms:google-services:$versions.play_services"
 
 
-        //classpath 'com.github.appachhi.android-sdk:appachhiplugin:0.4.7-beta'
+
 
     }
 
