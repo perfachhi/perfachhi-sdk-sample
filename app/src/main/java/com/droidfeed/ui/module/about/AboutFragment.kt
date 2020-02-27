@@ -1,6 +1,7 @@
 package com.droidfeed.ui.module.about
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.airbnb.lottie.LottieAnimationView
+import com.appachhi.sdk.instrument.transition.ScreenTransitionManager
 import com.droidfeed.BuildConfig
 import com.droidfeed.R
 import com.droidfeed.databinding.FragmentAboutBinding
@@ -47,6 +49,10 @@ class AboutFragment : BaseFragment("about") {
             lifecycleOwner = this@AboutFragment
         }
 
+        //Screen Transition for the About Fragment
+        val screenTransitionManager = ScreenTransitionManager.getInstance().beginTransition(context as Activity?, "AboutFragment.kt 0.4.7")
+
+
         subscribeStartIntentEvent()
         subscribeOpenUrlEvent()
         subscribeOpenLicenceEvent()
@@ -56,6 +62,12 @@ class AboutFragment : BaseFragment("about") {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        //Screen Transition for the AboutFragment
+        val screenTransitionManager = ScreenTransitionManager.getInstance().endTransition(context as Activity?, "AboutFragment.kt 0.4.7")
+    }
     private fun subscribeOpenLicenceEvent() {
         aboutViewModel.openLicences.observe(viewLifecycleOwner, EventObserver {
             Intent(context, LicencesActivity::class.java)

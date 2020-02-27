@@ -20,6 +20,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.appachhi.sdk.Appachhi
+import com.appachhi.sdk.instrument.trace.MethodTrace
+import com.appachhi.sdk.instrument.trace.Trace
 import com.droidfeed.R
 import com.droidfeed.databinding.ActivityMainBinding
 import com.droidfeed.ui.adapter.BaseUIModelAlias
@@ -50,9 +53,13 @@ class MainActivity : BaseActivity() {
     private val linearLayoutManager = LinearLayoutManager(this)
     private val uiModelAdapter = UIModelAdapter(lifecycleScope, linearLayoutManager)
 
+   // @Trace(name = "MainActivity.kt trace")
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
+
+        //Method Trace for onCreate
+       val methodTrace: MethodTrace = Appachhi.newTrace("MainActivity.kt onCreate Kotlin")
 
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(
             this,
@@ -74,6 +81,9 @@ class MainActivity : BaseActivity() {
         subscribeSourceRemoveUndoSnack()
 
         initFilterDrawer()
+
+        // Stopping the method trace at the end of the method.
+        methodTrace.stop();
     }
 
     private fun subscribeSourceShareEvent() {
@@ -191,6 +201,10 @@ class MainActivity : BaseActivity() {
     }
 
     private fun onMenuItemSelected(color: Int) {
+
+        //Method Trace starts
+        val methodTrace: MethodTrace = Appachhi.newTrace("OnMenuItemSelected function under MainActivity.kt")
+
         binding.appbar.btnMenu.isSelected = false
         animateMenuButton()
         animateMenuColor(color)
@@ -203,6 +217,9 @@ class MainActivity : BaseActivity() {
         }
 
         currentMenuColor = color
+
+        //Method Trace ends
+        methodTrace.stop();
     }
 
     private fun subscribeMenuVisibility() {

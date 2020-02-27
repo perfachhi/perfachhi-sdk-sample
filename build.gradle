@@ -5,6 +5,7 @@ buildscript {
         google()
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://jitpack.io" }
     }
 
     dependencies {
@@ -13,6 +14,10 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin"
         classpath "io.fabric.tools:gradle:$versions.fabric_gradle"
         classpath "com.google.gms:google-services:$versions.play_services"
+
+
+        //classpath 'com.github.appachhi.android-sdk:appachhiplugin:0.4.7-beta'
+
     }
 
 }
@@ -27,6 +32,8 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://jitpack.io" }
+
     }
 
     apply from: "$rootDir/detekt/detekt.gradle"

@@ -1,5 +1,6 @@
 package com.droidfeed.ui.module.about.licence
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -8,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.appachhi.sdk.instrument.transition.ScreenTransitionManager
 import com.droidfeed.R
 import com.droidfeed.databinding.ActivityLicenceBinding
 import com.droidfeed.ui.adapter.BaseUIModelAlias
@@ -42,6 +44,11 @@ class LicencesActivity : BaseActivity() {
 
         super.onCreate(savedInstanceState)
 
+        //Screen Transition for the About Fragment
+        ScreenTransitionManager.getInstance().beginTransition(this, "LicencesActivity.kt 0.4.7")
+
+
+
         DataBindingUtil.setContentView<ActivityLicenceBinding>(
             this,
             R.layout.activity_licence
@@ -61,6 +68,14 @@ class LicencesActivity : BaseActivity() {
         subscribeOpenUrl()
         subscribeLicenceUIModels()
         subscribeOnBackNavigation()
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+
+        //Screen Transition for the Licences Activity
+        ScreenTransitionManager.getInstance().endTransition(this, "LicencesActivity.kt 0.4.7")
     }
 
     private fun subscribeOpenUrl() {
