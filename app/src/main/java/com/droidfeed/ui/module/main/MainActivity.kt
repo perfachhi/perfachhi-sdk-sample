@@ -53,13 +53,15 @@ class MainActivity : BaseActivity() {
     private val linearLayoutManager = LinearLayoutManager(this)
     private val uiModelAdapter = UIModelAdapter(lifecycleScope, linearLayoutManager)
 
+    //private lateinit var methodTrace: MethodTrace
+
    // @Trace(name = "MainActivity.kt trace")
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
 
         //Method Trace for onCreate
-       val methodTrace: MethodTrace = Appachhi.newTrace("MainActivity.kt onCreate Kotlin")
+      var methodTrace: MethodTrace = Appachhi.newTrace("MainActivity.kt onCreate NEW MARCH")
 
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(
             this,
@@ -69,6 +71,8 @@ class MainActivity : BaseActivity() {
             lifecycleOwner = this@MainActivity
             appbar.containerView.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
         }
+       //c23a6dba97d3
+       //7e5a1047086a
 
         subscribeUserTerms()
         subscribeNavigation()
@@ -203,7 +207,7 @@ class MainActivity : BaseActivity() {
     private fun onMenuItemSelected(color: Int) {
 
         //Method Trace starts
-        val methodTrace: MethodTrace = Appachhi.newTrace("OnMenuItemSelected function under MainActivity.kt")
+        val methodTrace: MethodTrace = Appachhi.newTrace("OnMenuItemSelected function NEW MARCH")
 
         binding.appbar.btnMenu.isSelected = false
         animateMenuButton()

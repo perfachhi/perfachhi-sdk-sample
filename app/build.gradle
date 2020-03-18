@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
+//apply plugin: 'com.appachhi.plugin'
 
 ext.app = [
         'version'            : '2.2.0',
@@ -87,7 +88,6 @@ androidExtensions {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation deps.kotlin.stdlib
     implementation deps.kotlin.coroutines
     implementation deps.material_design
@@ -137,8 +137,10 @@ dependencies {
 
 
     //Appachhi SDK
-    implementation "com.github.appachhi.android-sdk:appachhisdk:0.4.7-beta"
-    implementation files('/build/libs/appachhiplugin.jar')
+    implementation "com.github.appachhi.android-sdk:appachhisdk:0.4.8-beta"
+    //implementation project(':appachhisdk')
+    implementation files('D:/Android/Projects/Triveous/droid-feed/app/build/libs/appachhiplugin.jar')
+
 
 }
 

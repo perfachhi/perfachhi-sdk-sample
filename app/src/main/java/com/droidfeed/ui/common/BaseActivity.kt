@@ -1,12 +1,14 @@
 package com.droidfeed.ui.common
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.appachhi.sdk.Appachhi
 import com.droidfeed.util.isMarshmallow
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -23,6 +25,9 @@ abstract class BaseActivity : AppCompatActivity(), HasAndroidInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
+
+        //Appachhi.getInstance().featureConfigManager.setScreenShotEnable(this, true)
+
         super.onCreate(savedInstanceState)
     }
 

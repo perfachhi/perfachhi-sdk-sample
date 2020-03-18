@@ -50,7 +50,7 @@ class AboutFragment : BaseFragment("about") {
         }
 
         //Screen Transition for the About Fragment
-        val screenTransitionManager = ScreenTransitionManager.getInstance().beginTransition(context as Activity?, "AboutFragment.kt 0.4.7")
+       ScreenTransitionManager.getInstance().beginTransition(context as Activity?, "AboutFragment.kt NEW")
 
 
         subscribeStartIntentEvent()
@@ -66,7 +66,7 @@ class AboutFragment : BaseFragment("about") {
         super.onResume()
 
         //Screen Transition for the AboutFragment
-        val screenTransitionManager = ScreenTransitionManager.getInstance().endTransition(context as Activity?, "AboutFragment.kt 0.4.7")
+        ScreenTransitionManager.getInstance().endTransition(context as Activity?, "AboutFragment.kt NEW")
     }
     private fun subscribeOpenLicenceEvent() {
         aboutViewModel.openLicences.observe(viewLifecycleOwner, EventObserver {
