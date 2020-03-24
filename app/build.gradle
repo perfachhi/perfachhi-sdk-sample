@@ -97,6 +97,7 @@ dependencies {
     implementation deps.androidx.lifecycle
     implementation deps.androidx.lifecycle_ktx
     implementation deps.androidx.viewmodel_ktx
+
     kapt deps.androidx.lifecycle_compiler
     implementation deps.androidx.paging
     implementation deps.androidx.constraint_layout
@@ -137,10 +138,10 @@ dependencies {
 
 
     //Appachhi SDK
-    implementation "com.github.appachhi.android-sdk:appachhisdk:0.4.8-beta"
-    //implementation project(':appachhisdk')
-    implementation files('D:/Android/Projects/Triveous/droid-feed/app/build/libs/appachhiplugin.jar')
-
+    //implementation "com.github.appachhi.android-sdk:appachhisdk:0.4.8-beta"
+    implementation project(':appachhisdk')
+   // implementation files('D:/Android/Projects/Triveous/droid-feed/app/build/libs/appachhiplugin.jar')
+    implementation fileTree(dir: 'app\\build\\libs', include: ['*.aar', '*.jar'], exclude: [])
 
 }
 

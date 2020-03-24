@@ -55,7 +55,8 @@
             android:resource="@array/preloaded_fonts" />
 
 
-        <meta-data android:name="perfachhi_api_key" android:value="d16e1052ab0b0c6c5ff861eea4cbccba"/>
+
+        <meta-data android:name="perfachhi_api_key" android:value="a55639500e178285c78b2959f2786c58"/>
 
 
     </application>
